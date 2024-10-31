@@ -1,4 +1,4 @@
-
+import Header from './Header';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
@@ -20,6 +20,8 @@ const LoginPage = () => {
   };
 
   return (
+    <>
+    <Header/>
     <Container fluid className="d-flex align-items-center justify-content-center min-vh-100">
       <Row className="justify-content-center w-100">
         <Col xs={12} sm={8} md={6} lg={5} xl={4}>
@@ -60,6 +62,7 @@ const LoginPage = () => {
         </Col>
       </Row>
     </Container>
+    </>
   );
 };
 
