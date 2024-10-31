@@ -15,7 +15,7 @@ const LoginPage = () => {
     e.preventDefault();
 
     if (email === 'test@example.com' && password === 'password123') {
-      navigate('StoreApp/products');
+      navigate('/products');
     } else {
       setError('Invalid email or password');
     }
