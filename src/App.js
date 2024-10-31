@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />}  basename={process.env.PUBLIC_URL} />
+        <Route path="/" element={<Login />} />
         <Route path="/products" element={<ProductPage />} />
       </Routes>
     </Router>
