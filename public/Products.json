@@ -1,0 +1,52 @@
+[
+    { 
+      "id": 1,
+      "name": "Mercedes Benz", 
+      "price": 25, 
+      "description": "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts. It features scrambled Latin text, which emphasizes the design over content of the layout. It is the standard placeholder text of the printing and publishing industries.", 
+      "category": "Cars", 
+      "image": "https://www.kbb.com/wp-content/uploads/2022/08/2022-mercedes-amg-eqs-front-left-3qtr.jpg?w=918" ,
+      "rating": 3.4
+    },
+
+    { 
+      "id": 2, 
+      "name": "Apple Macbook M1", 
+      "price": 40, 
+      "description": "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts. It features scrambled Latin text, which emphasizes the design over content of the layout. It is the standard placeholder text of the printing and publishing industries.", 
+      "category": "Labtops", 
+      "image": "https://cdn.thewirecutter.com/wp-content/media/2024/07/laptopstopicpage-2048px-3685-2x1-1.jpg?width=2048&quality=75&crop=2:1&auto=webp" ,
+      "rating": 4
+    },
+
+    { 
+      "id": 3, 
+      "name": "Rolls-Royce", 
+      "price": 15, 
+      "description": "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts. It features scrambled Latin text, which emphasizes the design over content of the layout. It is the standard placeholder text of the printing and publishing industries.", 
+      "category": "Cars", 
+      "image": "https://hips.hearstapps.com/hmg-prod/images/p90467422-highres-world-s-media-share-1677268347.jpg?crop=0.665xw:0.666xh;0.165xw,0.145xh&resize=980:*",
+      "rating": 4.5 
+    },
+
+    { 
+      "id": 4, 
+      "name": "PS 5", 
+      "price": 60, 
+      "description": "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts. It features scrambled Latin text, which emphasizes the design over content of the layout. It is the standard placeholder text of the printing and publishing industries.", 
+      "category": "Playstation", 
+      "image": "https://cdn.mos.cms.futurecdn.net/HkdMToxijoHfz4JwUgfh3G-1920-80.jpg.webp" ,
+      "rating": 3.2
+    },
+
+    { 
+      "id": 5, 
+      "name": "HP Labtop 2023", 
+      "price": 30, 
+      "description": "Lorem ipsum, placeholder or dummy text used in typesetting and graphic design for previewing layouts. It features scrambled Latin text, which emphasizes the design over content of the layout. It is the standard placeholder text of the printing and publishing industries.", 
+      "category": "Labtops", 
+      "image": "https://mandingmorri.com/wp-content/uploads/2017/07/Labtopsb-800x470.jpg" ,
+      "rating": 3
+    }
+  ]
+  
