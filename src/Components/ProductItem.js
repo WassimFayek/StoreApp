@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ProductItem.css';
+import './styles/ProductItem.css';
 import { Card, Col } from 'react-bootstrap';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 

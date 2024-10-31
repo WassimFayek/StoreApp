@@ -1,4 +1,4 @@
-import './ProductItem.css';
+import './styles/ProductItem.css';
 import React from 'react';
 import ProductItem from './ProductItem';
 
