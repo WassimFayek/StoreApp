@@ -12,7 +12,7 @@ const ProductPage = () => {
 
   useEffect(() => {
 
-    const jsonPath = process.env.PUBLIC_URL + '/Products.json';
+    const jsonPath ='./Products.json';
     fetch(jsonPath)
       .then((response) => {
         if (!response.ok) {
