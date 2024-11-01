@@ -2,7 +2,7 @@ import Header from './Header';
 import './styles/Header.css';
 import ProductList from './ProductList';
 import React, { useState, useEffect } from 'react';
-import { Container, Form, Row, Col  } from 'react-bootstrap';
+import { Container, Form, Row, Col, Modal, Button  } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
@@ -12,6 +12,8 @@ const ProductPage = ({onAddToCart, cartCount, cart}) => {
   const [categories, setCategories] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [error, setError] = useState(null);
+
+  const [showCart, setShowCart] = useState(false);
 
   useEffect(() => {
 
@@ -46,6 +48,11 @@ const ProductPage = ({onAddToCart, cartCount, cart}) => {
     );
   });
 
+  const handleShowCart = () => setShowCart(true);
+  const handleCloseCart = () => setShowCart(false);
+  console.log("cart", cart)
+  console.log("products", products)
+
   return (
     <>
    <Header/>
@@ -78,7 +85,7 @@ const ProductPage = ({onAddToCart, cartCount, cart}) => {
           </Form.Group>
         </Col>
         <Col  xs={2} md={1} className="d-flex justify-content-center">  
-            <div className="cart-icon position-relative cart-icon-adjustment">
+            <div className="cart-icon position-relative cart-icon-adjustment" onClick={handleShowCart}>
               <FontAwesomeIcon icon={faShoppingCart} size="lg" />
               {cartCount > 0 && (
                 <span className="cart-counter position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -90,6 +97,37 @@ const ProductPage = ({onAddToCart, cartCount, cart}) => {
       </Row>
 
       <ProductList products={filteredProducts} onAddToCart={onAddToCart} cart={cart} className="product-list" />
+
+      <Modal show={showCart} onHide={handleCloseCart} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Your Cart</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {cart.length === 0 ? (
+            <p>Your cart is empty.</p>
+          ) : (
+            products && products.length > 0 && products.filter((product) => cart.includes(product.id))
+            .map((item, index) => (
+            <div key={index} className="d-flex justify-content-between mb-3">
+              <div>
+                <h6>{item.name}</h6>
+                <p className="text-muted">${item.price}</p>
+              </div>
+            </div>
+          ))
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseCart}>
+            Close
+          </Button>
+          {cart.length > 0 && (
+            <Button variant="primary" onClick={() => alert('Proceed to checkout')}>
+              Checkout
+            </Button>
+          )}
+        </Modal.Footer>
+      </Modal>
     </Container>
     </>
   );
