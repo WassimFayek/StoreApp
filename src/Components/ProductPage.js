@@ -12,7 +12,7 @@ const ProductPage = () => {
 
   useEffect(() => {
 
-    const jsonPath ='./Products.json';
+    const jsonPath ='StoreApp/Products.json';
     fetch(jsonPath)
       .then((response) => {
         if (!response.ok) {
