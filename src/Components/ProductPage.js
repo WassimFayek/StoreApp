@@ -1,9 +1,12 @@
 import Header from './Header'; 
+import './styles/Header.css';
 import ProductList from './ProductList';
 import React, { useState, useEffect } from 'react';
 import { Container, Form, Row, Col  } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-const ProductPage = () => {
+const ProductPage = ({onAddToCart, cartCount, cart}) => {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState('');
   const [categories, setCategories] = useState([]);
@@ -51,7 +54,7 @@ const ProductPage = () => {
       {error && <div className="text-danger">{error}</div>}
 
       <Row className="align-items-center mb-3">
-        <Col md={3}>
+        <Col xs={12} md={3}>
           <Form.Group controlId="categoryFilter">
             <Form.Label>Filter by Category</Form.Label>
             <Form.Control as="select" value={category} onChange={handleFilterChange}>
@@ -63,7 +66,7 @@ const ProductPage = () => {
           </Form.Group>
         </Col>
 
-        <Col md={9}>
+        <Col xs={10} md={8}>
           <Form.Group controlId="search">
             <Form.Label>Search Products</Form.Label>
             <Form.Control
@@ -74,9 +77,19 @@ const ProductPage = () => {
             />
           </Form.Group>
         </Col>
+        <Col  xs={2} md={1} className="d-flex justify-content-center">  
+            <div className="cart-icon position-relative cart-icon-adjustment">
+              <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+              {cartCount > 0 && (
+                <span className="cart-counter position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  {cartCount}
+                </span>
+              )}
+            </div>
+        </Col>
       </Row>
 
-      <ProductList products={filteredProducts} className="product-list" />
+      <ProductList products={filteredProducts} onAddToCart={onAddToCart} cart={cart} className="product-list" />
     </Container>
     </>
   );
