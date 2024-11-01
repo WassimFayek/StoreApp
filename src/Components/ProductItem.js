@@ -22,13 +22,14 @@ const renderStars = (rating) => {
   );
 };
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product, onAddToCart, cart }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   const toggleDescription = () => setShowFullDescription(!showFullDescription);
 
   const maxDescriptionLength = 100;
   const shortDescription = product.description.slice(0, maxDescriptionLength);
+  const isInCart = cart && cart.includes(product.id)
 
   if (!product) return null;
   return (
@@ -36,7 +37,10 @@ const ProductItem = ({ product }) => {
         <Card className="h-100 shadow-sm product-card">
           <Card.Img variant="top" src={product.image} alt={product.name} />
           <Card.Body>
-            <Card.Title>{product.name}</Card.Title>
+            <Card.Title className="d-flex align-items-center justify-content-between">
+            <span>{product.name}</span> 
+            <div className="rating">{renderStars(product.rating)}</div>
+            </Card.Title>
             <Card.Text className="text-muted">{product.category}</Card.Text>
             <Card.Text>${product.price}</Card.Text>
             <Card.Text>
@@ -51,7 +55,11 @@ const ProductItem = ({ product }) => {
               </span>
             )}
             </Card.Text>
-             <div className="rating">{renderStars(product.rating)}</div>
+            <Card.Text>
+             <button  disabled={isInCart}  className="btn btn-primary w-100" onClick={() => onAddToCart(product)}>
+             {isInCart ? "In Cart" : "Add to Cart"}
+            </button>
+             </Card.Text>
           </Card.Body>
         </Card>
       </Col>
