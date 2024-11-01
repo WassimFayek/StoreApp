@@ -11,7 +11,7 @@ const ProductPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('public/products.json')
+    fetch('StoreApp/public/products.json')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
